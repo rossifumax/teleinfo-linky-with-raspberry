@@ -75,10 +75,9 @@ def add_measures(measures, time_measure):
 
 
 def main():
-    with serial.Serial(port='/dev/ttyS0', baudrate=1200, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE,
-                       bytesize=serial.SEVENBITS, timeout=1) as ser:
+    with serial.Serial('/dev/ttyUSB0', 1200, 7, 'E', 1, timeout=1) as ser:
 
-        logging.info("Teleinfo is reading on /dev/ttyS0..")
+        logging.info("Teleinfo is reading on /dev/ttyUSB0..")
 
         trame = dict()
 
@@ -122,5 +121,3 @@ def main():
 if __name__ == '__main__':
     if connected:
         main()
-
-
